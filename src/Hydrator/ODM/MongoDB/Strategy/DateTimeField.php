@@ -24,10 +24,11 @@ class DateTimeField implements StrategyInterface
 
     /**
      * @param mixed $value
+     * @param object|null $object
      *
      * @return int|mixed
      */
-    public function extract($value)
+    public function extract($value, ?object $object = null)
     {
         if (!($value instanceof \DateTime)) {
             return $value;
@@ -38,10 +39,11 @@ class DateTimeField implements StrategyInterface
 
     /**
      * @param mixed $value
+     * @param array|null $data
      *
      * @return \DateTime|null
      */
-    public function hydrate($value)
+    public function hydrate($value, ?array $data)
     {
         $datetime = $this->convertToDateTime($value);
         if (!$datetime) {
@@ -62,7 +64,7 @@ class DateTimeField implements StrategyInterface
      *
      * @return \DateTime|null
      */
-    protected function convertToDateTime($value)
+    protected function convertToDateTime($value): ?\DateTime
     {
         if ($value instanceof \DateTime) {
             return clone $value;
@@ -88,6 +90,6 @@ class DateTimeField implements StrategyInterface
             return $datetime;
         }
 
-        return;
+        return null;
     }
 }

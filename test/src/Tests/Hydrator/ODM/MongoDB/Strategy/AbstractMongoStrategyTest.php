@@ -4,6 +4,8 @@ namespace PhproTest\DoctrineHydrationModule\Tests\Hydrator\ODM\MongoDB\Strategy;
 
 use Doctrine\ODM\MongoDB\Tests\BaseTest;
 use Laminas\Hydrator\Strategy\StrategyInterface;
+use Doctrine\Laminas\Hydrator\Strategy\AbstractCollectionStrategy;
+use DoctrineModule\Persistence\ObjectManagerAwareInterface;
 
 /**
  * Class AbstractMongoStrategyTest.
@@ -51,7 +53,7 @@ abstract class AbstractMongoStrategyTest extends BaseTest
     public function it_should_be_a_collection_strategy()
     {
         $strategy = $this->createStrategy();
-        $this->assertInstanceOf('DoctrineModule\Stdlib\Hydrator\Strategy\AbstractCollectionStrategy', $strategy);
+        $this->assertInstanceOf(AbstractCollectionStrategy::class, $strategy);
     }
 
     /**
@@ -60,7 +62,7 @@ abstract class AbstractMongoStrategyTest extends BaseTest
     public function it_should_know_an_object_manager()
     {
         $strategy = $this->createStrategy();
-        $this->assertInstanceOf('DoctrineModule\Persistence\ObjectManagerAwareInterface', $strategy);
+        $this->assertInstanceOf(ObjectManagerAwareInterface::class, $strategy);
     }
 
     /**

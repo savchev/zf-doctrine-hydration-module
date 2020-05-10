@@ -17,7 +17,7 @@ class EmbeddedCollection extends AbstractMongoStrategy
      *
      * @throws \Exception
      */
-    public function extract($value)
+    public function extract($value, ?object $object = null)
     {
         // Embedded Many
         if (!($value instanceof Collection)) {
@@ -49,7 +49,7 @@ class EmbeddedCollection extends AbstractMongoStrategy
      *
      * @return array|Collection|mixed
      */
-    public function hydrate($value)
+    public function hydrate($value, ?array $data)
     {
         $mapping = $this->metadata->fieldMappings[$this->collectionName];
         $targetDocument = $mapping['targetDocument'];

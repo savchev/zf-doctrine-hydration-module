@@ -57,7 +57,7 @@ class EmbeddedCollectionTest extends AbstractMongoStrategyTest
         ];
 
         $strategy = $this->getStrategy($this->dm, $user, 'embedMany');
-        $strategy->hydrate($data);
+        $strategy->hydrate($data, null);
         $embedMany = $user->getEmbedMany();
         $this->assertEquals('name', $embedMany[0]->getName());
     }
@@ -79,7 +79,7 @@ class EmbeddedCollectionTest extends AbstractMongoStrategyTest
         ];
 
         $strategy = $this->getStrategy($this->dm, $user, 'embedMany');
-        $strategy->hydrate($data);
+        $strategy->hydrate($data, null);
         $this->assertTrue($user->getEmbedMany()->containsKey('user1'));
         $this->assertEquals('name', $user->getEmbedMany()->get('user1')->getName());
     }

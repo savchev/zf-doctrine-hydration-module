@@ -12,7 +12,7 @@ class EmbeddedReferenceField extends AbstractMongoStrategy
      *
      * @return mixed
      */
-    public function extract($value)
+    public function extract($value, ?object $object = null)
     {
         if (!$value) {
             return $value;
@@ -31,7 +31,7 @@ class EmbeddedReferenceField extends AbstractMongoStrategy
      *
      * @return array|mixed
      */
-    public function hydrate($value)
+    public function hydrate($value, ?array $data)
     {
         $strategy = new ReferencedField($this->getObjectManager());
         $strategy->setClassMetadata($this->getClassMetadata());
