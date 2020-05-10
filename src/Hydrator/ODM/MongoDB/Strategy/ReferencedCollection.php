@@ -21,7 +21,7 @@ class ReferencedCollection extends AbstractMongoStrategy
         $strategy->setClassMetadata($this->getClassMetadata());
         $strategy->setCollectionName($this->getCollectionName());
 
-        $result = array();
+        $result = [];
         if ($value) {
             foreach ($value as $key => $record) {
                 $strategy->setObject($record);
@@ -42,7 +42,7 @@ class ReferencedCollection extends AbstractMongoStrategy
         $mapping = $this->metadata->fieldMappings[$this->collectionName];
         $targetDocument = $mapping['targetDocument'];
 
-        $result = array();
+        $result = [];
         if ($value) {
             foreach ($value as $documentId) {
                 $result[] = $this->hydrateSingle($targetDocument, $documentId);

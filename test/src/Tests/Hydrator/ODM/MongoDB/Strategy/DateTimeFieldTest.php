@@ -35,7 +35,7 @@ class DateTimeFieldTest extends TestCase
     public function it_should_be_a_strategy_interface()
     {
         $strategy = $this->createStrategy();
-        $this->assertInstanceOf('Zend\Hydrator\Strategy\StrategyInterface', $strategy);
+        $this->assertInstanceOf('Laminas\Hydrator\Strategy\StrategyInterface', $strategy);
     }
 
     /**

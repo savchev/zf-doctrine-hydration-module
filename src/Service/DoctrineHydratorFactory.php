@@ -6,23 +6,23 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ORM\EntityManager;
 use DoctrineModule\Persistence\ObjectManagerAwareInterface;
-use DoctrineModule\Stdlib\Hydrator;
+use Doctrine\Laminas\Hydrator;
 use Interop\Container\ContainerInterface;
 use Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator;
 use Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB;
-use Zend\Hydrator\AbstractHydrator;
-use Zend\Hydrator\Filter\FilterComposite;
-use Zend\Hydrator\Filter\FilterInterface;
-use Zend\Hydrator\FilterEnabledInterface;
-use Zend\Hydrator\HydratorInterface;
-use Zend\Hydrator\NamingStrategy\NamingStrategyInterface;
-use Zend\Hydrator\NamingStrategyEnabledInterface;
-use Zend\Hydrator\Strategy\StrategyInterface;
-use Zend\Hydrator\StrategyEnabledInterface;
-use Zend\ServiceManager\AbstractFactoryInterface;
-use Zend\ServiceManager\Exception\ServiceNotCreatedException;
-use Zend\ServiceManager\Exception\ServiceNotFoundException;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\Hydrator\AbstractHydrator;
+use Laminas\Hydrator\Filter\FilterComposite;
+use Laminas\Hydrator\Filter\FilterInterface;
+use Laminas\Hydrator\Filter\FilterEnabledInterface;
+use Laminas\Hydrator\HydratorInterface;
+use Laminas\Hydrator\NamingStrategy\NamingStrategyInterface;
+use Laminas\Hydrator\NamingStrategy\NamingStrategyEnabledInterface;
+use Laminas\Hydrator\Strategy\StrategyInterface;
+use Laminas\Hydrator\Strategy\StrategyEnabledInterface;
+use Laminas\ServiceManager\Factory\AbstractFactoryInterface;
+use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Laminas\ServiceManager\Exception\ServiceNotFoundException;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 
 /**
  * Class DoctrineHydratorFactory.
@@ -39,7 +39,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
      *
      * @var array
      */
-    protected $lookupCache = array();
+    protected $lookupCache = [];
 
     /**
      * Determine if we can create a service with name.
@@ -362,10 +362,10 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
         }
 
         foreach ($config['filters'] as $name => $filterConfig) {
-            $conditionMap = array(
+            $conditionMap = [
                 'and' => FilterComposite::CONDITION_AND,
                 'or' => FilterComposite::CONDITION_OR,
-            );
+            ];
             $condition = isset($filterConfig['condition']) ?
                             $conditionMap[$filterConfig['condition']] :
                             FilterComposite::CONDITION_OR;

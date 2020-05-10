@@ -3,7 +3,7 @@
 namespace PhproTest\DoctrineHydrationModule\Tests\Hydrator\ODM\MongoDB\Strategy;
 
 use Doctrine\ODM\MongoDB\Tests\BaseTest;
-use Zend\Hydrator\Strategy\StrategyInterface;
+use Laminas\Hydrator\Strategy\StrategyInterface;
 
 /**
  * Class AbstractMongoStrategyTest.
