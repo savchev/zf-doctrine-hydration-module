@@ -29,38 +29,38 @@ composer require phpro/zf-doctrine-hydration-module
 
 ## Add to application config
 ```php
-return array(
-    'modules' => array(
+return [
+    'modules' => [
         'Phpro\\DoctrineHydrationModule',
         // other libs...
-    ),
+    ],
     // Other config
-);
+];
 ```
 
 ### Hydrator configuration
 ```php
-return array(
-    'doctrine-hydrator' => array(
-        'hydrator-manager-key' => array(
+return [
+    'doctrine-hydrator' => [
+        'hydrator-manager-key' => [
             'entity_class' => 'App\Entity\EntityClass',
             'object_manager' => 'doctrine.objectmanager.key.in.servicelocator',
             'by_value' => true,
             'use_generated_hydrator' => true,
             'naming_strategy' => 'custom.naming.strategy.key.in.servicemanager',
             'hydrator' => 'custom.hydrator.key.in.hydratormanager',
-            'strategies' => array(
+            'strategies' => [
                 'fieldname' => 'custom.strategy.key.in.servicemanager',
-            ),
-            'filters' => array(
-                'custom_filter_name' => array(
+            ],
+            'filters' => [
+                'custom_filter_name' => [
                     'condition' => 'and', // optional, default is 'or'
                     'filter'    => 'custom.hydrator.filter.key.in.servicemanager',
-                ),
-            ),
-        ),
-    ),
-);
+                ],
+            ],
+        ],
+    ],
+];
 ```
 
 **`entity_class`**
@@ -129,19 +129,19 @@ Custom filters allow you to fine-tune the results of the hydrator's `extract` fu
 
 To configure custom filters:
 ```php
-return array(
-    'doctrine-hydrator' => array(
-        'custom-hydrator' => array(
+return [
+    'doctrine-hydrator' => [
+        'custom-hydrator' => [
             // other config
-            'filters' => array(
-                'custom.filter.name' => array(
+            'filters' => [
+                'custom.filter.name' => [
                     'condition' => 'and', //optional, default: FilterComposite::CONDITION_OR,
                     'filter' => 'custom.filter', // a name in the Service Manager
-                ),
-            ),
-        ),
-    ),
-);
+                ],
+            ],
+        ],
+    ],
+];
 
 ```
 In this example configuration, the hydrator factory will retrieve `custom.filter` from the Service Manager and inject it as a filter into the hydrator. The filter must implement `Zend\Hydrator\Filter\FilterInterface`. 
@@ -154,14 +154,14 @@ The service's `filter($fieldName)` function will be called by the hydrator durin
 If the standard DoctrineHydrator is not flexible enough, you can set a custom `hydrator`. This allows you to use an extended DoctrineHydrator or another existing hydrator, and configure it with this module. This setting will override `use_generated_hydrator`.
 
 ```php
-return array(
-    'doctrine-hydrator' => array(
-        'custom-hydrator' => array(
+return [
+    'doctrine-hydrator' => [
+        'custom-hydrator' => [
             // other config
             'hydrator' => 'Zend\Hydrator\ArraySerializable'
-        ),
-    ),
-);
+        ],
+    ],
+];
 ```
 
 # Testing

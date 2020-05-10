@@ -25,7 +25,7 @@ class EmbeddedCollection extends AbstractMongoStrategy
         }
 
         $mapping = $this->getClassMetadata()->fieldMappings[$this->getCollectionName()];
-        $result = array();
+        $result = [];
         if ($value) {
             foreach ($value as $index => $object) {
                 $hydrator = $this->getDoctrineHydrator();
@@ -54,9 +54,9 @@ class EmbeddedCollection extends AbstractMongoStrategy
         $mapping = $this->metadata->fieldMappings[$this->collectionName];
         $targetDocument = $mapping['targetDocument'];
         $discriminator = isset($mapping ['discriminatorField']) ? $mapping ['discriminatorField'] : false;
-        $discriminatorMap = isset($mapping['discriminatorMap']) ? $mapping['discriminatorMap'] : array();
+        $discriminatorMap = isset($mapping['discriminatorMap']) ? $mapping['discriminatorMap'] : [];
 
-        $result = array();
+        $result = [];
         if ($value) {
             foreach ($value as $key => $data) {
                 // Use configured discriminator as discriminator class:

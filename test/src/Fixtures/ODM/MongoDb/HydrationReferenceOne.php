@@ -4,13 +4,19 @@ namespace PhproTest\DoctrineHydrationModule\Fixtures\ODM\MongoDb;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 
-/** @ODM\Document */
+/**
+ * @ODM\Document 
+ */
 class HydrationReferenceOne
 {
-    /** @ODM\Id */
+    /**
+     * @ODM\Id 
+     */
     public $id;
 
-    /** @ODM\Field(type="string") */
+    /**
+     * @ODM\Field(type="string") 
+     */
     public $name;
 
     /**

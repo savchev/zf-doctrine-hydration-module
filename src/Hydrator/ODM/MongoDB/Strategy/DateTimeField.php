@@ -2,7 +2,7 @@
 
 namespace Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\Strategy;
 
-use Zend\Hydrator\Strategy\StrategyInterface;
+use Laminas\Hydrator\Strategy\StrategyInterface;
 
 /**
  * Class DateTimeField.
