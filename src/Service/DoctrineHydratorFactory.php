@@ -76,20 +76,24 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
         // Validate object manager
         $config = $config[$namespace];
         if (!isset($config[$requestedName]) || !isset($config[$requestedName]['object_manager'])) {
-            throw new ServiceNotFoundException(sprintf(
-                '%s requires that a valid "object_manager" is specified for hydrator %s; no service found',
-                __METHOD__,
-                $requestedName
-            ));
+            throw new ServiceNotFoundException(
+                sprintf(
+                    '%s requires that a valid "object_manager" is specified for hydrator %s; no service found',
+                    __METHOD__,
+                    $requestedName
+                )
+            );
         }
 
         // Validate object class
         if (!isset($config[$requestedName]['entity_class'])) {
-            throw new ServiceNotFoundException(sprintf(
-                '%s requires that a valid "entity_class" is specified for hydrator %s; no service found',
-                __METHOD__,
-                $requestedName
-            ));
+            throw new ServiceNotFoundException(
+                sprintf(
+                    '%s requires that a valid "entity_class" is specified for hydrator %s; no service found',
+                    __METHOD__,
+                    $requestedName
+                )
+            );
         }
 
         $this->lookupCache[$requestedName] = true;
@@ -151,7 +155,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
             $hydrateService = $extractService;
         }
 
-        # Use DoctrineModuleHydrator by default
+        // Use DoctrineModuleHydrator by default
         if (!isset($extractService, $hydrateService)) {
             $doctrineModuleHydrator = $this->loadDoctrineModuleHydrator($container, $config, $objectManager);
             $extractService = ($extractService ?: $doctrineModuleHydrator);

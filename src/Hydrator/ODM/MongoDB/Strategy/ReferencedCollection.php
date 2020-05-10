@@ -5,7 +5,6 @@ namespace Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\Strategy;
 use Doctrine\Common\Collections\Collection;
 
 /**
- *
  * Class PersistentCollection
  */
 class ReferencedCollection extends AbstractMongoStrategy

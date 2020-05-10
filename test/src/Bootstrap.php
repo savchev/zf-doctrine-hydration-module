@@ -46,9 +46,11 @@ class Bootstrap
         $this->autoLoader->addPsr4('PhproTest\\DoctrineHydrationModule\\Tests\\', __DIR__.'/Tests/');
         $this->autoLoader->addPsr4('PhproTest\\DoctrineHydrationModule\\Fixtures\\', __DIR__.'/Fixtures/');
 
-        $this->autoLoader->addClassMap([
+        $this->autoLoader->addClassMap(
+            [
             'Doctrine\\ODM\\MongoDB\\Tests\\BaseTest' => PROJECT_BASE_PATH.'/vendor/doctrine/mongodb-odm/tests/Doctrine/ODM/MongoDB/Tests/BaseTest.php',
-        ]);
+            ]
+        );
     }
 
     /**
@@ -65,6 +67,6 @@ class Bootstrap
     }
 }
 
-$autoLoader = require $autoloadFile;
+$autoLoader = include $autoloadFile;
 $bootstrap = new Bootstrap($autoLoader);
 $bootstrap->init();

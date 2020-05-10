@@ -8,15 +8,18 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 /**
  * Class HydrationUser.
  *
- *
  * @ODM\Document
  */
 class HydrationUser
 {
-    /** @ODM\Id */
+    /**
+     * @ODM\Id 
+     */
     public $id;
 
-    /** @ODM\Field(type="string") */
+    /**
+     * @ODM\Field(type="string") 
+     */
     public $name;
 
     /**

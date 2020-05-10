@@ -42,7 +42,7 @@ class DoctrineHydratorFactoryTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->serviceConfig = require TEST_BASE_PATH.'/config/module.config.php';
+        $this->serviceConfig = include TEST_BASE_PATH.'/config/module.config.php';
 
         $this->serviceManager = new ServiceManager();
         $this->serviceManager->setAllowOverride(true);
