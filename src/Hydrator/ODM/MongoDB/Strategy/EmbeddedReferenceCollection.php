@@ -44,6 +44,6 @@ class EmbeddedReferenceCollection extends AbstractMongoStrategy
             $strategy->setObject($this->getObject());
         }
 
-        return $strategy->hydrate($value);
+        return $strategy->hydrate($value, $data);
     }
 }
