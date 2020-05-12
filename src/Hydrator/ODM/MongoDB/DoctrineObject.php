@@ -4,7 +4,7 @@ namespace Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB;
 
 use DoctrineModule\Persistence\ObjectManagerAwareInterface;
 use Doctrine\Laminas\Hydrator\DoctrineObject as BaseHydrator;
-use DoctrineModule\Stdlib\Hydrator\Strategy as DoctrineStrategy;
+use Doctrine\Laminas\Hydrator\Strategy as DoctrineStrategy;
 use InvalidArgumentException;
 use Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\Strategy\AbstractMongoStrategy;
 use Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\Strategy\DateTimeField;

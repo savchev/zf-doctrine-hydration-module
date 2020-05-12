@@ -3,6 +3,7 @@
 namespace Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\Strategy;
 
 use Doctrine\Common\Collections\Collection;
+use ReflectionClass;
 
 /**
  * Class PersistentCollection.
@@ -28,7 +29,7 @@ class ReferencedField extends AbstractMongoStrategy
         $getter = 'get'.ucfirst($idField);
 
         // Validate object:
-        $rc = new \ReflectionClass($value);
+        $rc = new ReflectionClass($value);
         if (!$rc->hasMethod($getter)) {
             return $value;
         }

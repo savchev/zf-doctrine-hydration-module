@@ -82,8 +82,6 @@ abstract class AbstractMongoStrategy extends AbstractCollectionStrategy implemen
     protected function findTargetDocument($targetDocument, $targetId)
     {
         $repo = $this->getObjectManager()->getRepository($targetDocument);
-        $document = $repo->find($targetId);
-
-        return $document;
+        return $repo->find($targetId);
     }
 }

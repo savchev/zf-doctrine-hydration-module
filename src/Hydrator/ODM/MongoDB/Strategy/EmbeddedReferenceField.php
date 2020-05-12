@@ -23,7 +23,7 @@ class EmbeddedReferenceField extends AbstractMongoStrategy
         $strategy->setCollectionName($this->getCollectionName());
         $strategy->setObject($value);
 
-        return $strategy->extract($value);
+        return $strategy->extract($value, $object);
     }
 
     /**

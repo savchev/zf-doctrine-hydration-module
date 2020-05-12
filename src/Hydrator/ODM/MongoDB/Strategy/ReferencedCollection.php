@@ -24,7 +24,7 @@ class ReferencedCollection extends AbstractMongoStrategy
         if ($value) {
             foreach ($value as $key => $record) {
                 $strategy->setObject($record);
-                $result[$key] = $strategy->extract($record);
+                $result[$key] = $strategy->extract($record, $object);
             }
         }
 

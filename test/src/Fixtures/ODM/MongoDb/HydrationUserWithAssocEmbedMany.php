@@ -30,7 +30,7 @@ class HydrationUserWithAssocEmbedMany
     public $birthday;
 
     /**
-     * @ODM\Timestamp
+     * @ODM\Field(type="timestamp")
      *
      * @var \DateTime
      */
