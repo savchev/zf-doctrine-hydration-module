@@ -16,7 +16,7 @@ class DefaultRelation extends AbstractMongoStrategy
      *
      * @throws \Exception
      */
-    public function extract($value)
+    public function extract($value, ?object $object = null)
     {
         return $value;
     }
@@ -26,7 +26,7 @@ class DefaultRelation extends AbstractMongoStrategy
      *
      * @return array|Collection|mixed
      */
-    public function hydrate($value)
+    public function hydrate($value, ?array $data)
     {
         // Beware of the collection strategies:
         $collection = $this->collectionName;

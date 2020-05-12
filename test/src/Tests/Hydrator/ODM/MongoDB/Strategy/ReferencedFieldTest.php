@@ -5,7 +5,7 @@ namespace PhproTest\DoctrineHydrationModule\Tests\Hydrator\ODM\MongoDB\Strategy;
 use Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\Strategy\ReferencedField;
 use PhproTest\DoctrineHydrationModule\Fixtures\ODM\MongoDb\HydrationReferenceOne;
 use PhproTest\DoctrineHydrationModule\Fixtures\ODM\MongoDb\HydrationUser;
-use Zend\Hydrator\Strategy\StrategyInterface;
+use Laminas\Hydrator\Strategy\StrategyInterface;
 
 /**
  * Class ReferencedFieldTest.
@@ -52,7 +52,7 @@ class ReferencedFieldTest extends AbstractMongoStrategyTest
         $data = $id;
 
         $strategy = $this->getStrategy($this->dm, $user, 'referenceOne');
-        $result = $strategy->hydrate($data);
+        $result = $strategy->hydrate($data, null);
         $this->assertEquals('name', $result->getName());
     }
 

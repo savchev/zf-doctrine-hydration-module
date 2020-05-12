@@ -16,7 +16,7 @@ class EmbeddedReferenceCollection extends AbstractMongoStrategy
      *
      * @throws \Exception
      */
-    public function extract($value)
+    public function extract($value, ?object $object = null)
     {
         if (!$value) {
             return $value;
@@ -27,7 +27,7 @@ class EmbeddedReferenceCollection extends AbstractMongoStrategy
         $strategy->setCollectionName($this->getCollectionName());
         $strategy->setObject($value);
 
-        return $strategy->extract($value);
+        return $strategy->extract($value, $object);
     }
 
     /**
@@ -35,7 +35,7 @@ class EmbeddedReferenceCollection extends AbstractMongoStrategy
      *
      * @return array|Collection|mixed
      */
-    public function hydrate($value)
+    public function hydrate($value, ?array $data)
     {
         $strategy = new ReferencedCollection($this->getObjectManager());
         $strategy->setClassMetadata($this->getClassMetadata());
@@ -44,6 +44,6 @@ class EmbeddedReferenceCollection extends AbstractMongoStrategy
             $strategy->setObject($this->getObject());
         }
 
-        return $strategy->hydrate($value);
+        return $strategy->hydrate($value, $data);
     }
 }

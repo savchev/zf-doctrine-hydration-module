@@ -8,15 +8,18 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 /**
  * Class HydrationUser.
  *
- *
  * @ODM\Document
  */
 class HydrationUser
 {
-    /** @ODM\Id */
+    /**
+     * @ODM\Id 
+     */
     public $id;
 
-    /** @ODM\Field(type="string") */
+    /**
+     * @ODM\Field(type="string") 
+     */
     public $name;
 
     /**
@@ -27,7 +30,7 @@ class HydrationUser
     public $birthday;
 
     /**
-     * @ODM\Timestamp
+     * @ODM\Field(type="timestamp")
      *
      * @var \DateTime
      */
@@ -43,7 +46,7 @@ class HydrationUser
      *
      * @var ArrayCollection
      */
-    public $referenceMany = array();
+    public $referenceMany = [];
 
     /**
      * @ODM\EmbedOne(targetDocument="HydrationEmbedOne")

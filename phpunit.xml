@@ -4,7 +4,7 @@
         <testsuite name="Main">
             <file>./test/src/Tests/ModuleTest.php</file>
             <directory>./test/src/Tests/Service</directory>
-            <file>./tests/src/Tests/Hydrator/DoctrineHydratorTest.php</file>
+            <file>./test/src/Tests/Hydrator/DoctrineHydratorTest.php</file>
         </testsuite>
         <testsuite name="ODM">
             <directory>./test/src/Tests/Hydrator/ODM</directory>

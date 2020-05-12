@@ -4,7 +4,7 @@ namespace PhproTest\DoctrineHydrationModule\Hydrator;
 
 use Interop\Container\ContainerInterface;
 use Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator;
-use Zend\Hydrator\ArraySerializable;
+use Laminas\Hydrator\ArraySerializableHydrator;
 
 final class CustomBuildHydratorFactory
 {
@@ -13,6 +13,6 @@ final class CustomBuildHydratorFactory
         $requestedName,
         array $options = null
     ) {
-        return new ArraySerializable();
+        return new ArraySerializableHydrator();
     }
 }
